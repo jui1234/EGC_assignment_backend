@@ -25,7 +25,7 @@ export const getTransactions = async (req, res) => {
     if (startDate && endDate) {
       filter.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
     }
-    const transactions = await Transaction.find(filter).sort({ date: -1 });
+    const transactions = await Transaction.find(filter).sort({ createdAt: -1 });
     res.json({ success: true, message: "Transactions fetched", data: transactions });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });

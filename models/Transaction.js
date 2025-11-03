@@ -6,6 +6,9 @@ const transactionSchema = new mongoose.Schema({
   description: { type: String },
   category: { type: String, required: true },
   date: { type: Date, default: Date.now },
+},
+{
+  timestamps:true
 });
 
 export default mongoose.model("Transaction", transactionSchema);
